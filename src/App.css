@@ -4,13 +4,19 @@
   color: aliceblue;
   padding: 1em;
 }
+
 .header > h1 {
   margin: 0;
 }
 
 .main {
+  display: flex;
   background-color: antiquewhite;
-  padding: 3em;
+  padding: 14em 3em;
+}
+
+.main div {
+  flex: 1;
 }
 
 .footer {
@@ -18,4 +24,27 @@
   background-color: rgb(129, 60, 2);
   color: aliceblue;
   padding: 1em;
+}
+
+.token-form fieldset {
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.token-form div {
+  display: flex;
+  padding: 1em;
+  font-size: 1.5em;
+  justify-content: center;
+}
+
+.token-form div > label, .token-form div > input {
+  flex: 1;
+}
+
+.token-form div > button {
+  width: 40%;
+  padding: 0.75em;
+  border-radius: 1em;
 }
