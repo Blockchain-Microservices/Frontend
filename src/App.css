@@ -1,0 +1,74 @@
+.header {
+  text-align: center;
+  background-color: rgb(129, 60, 2);
+  color: aliceblue;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, .05);
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.header > h1 {
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 25em 2em;
+  justify-content: center;
+  align-items: center;
+}
+
+.main div {
+  flex: 1;
+  margin-bottom: 3em;
+}
+
+.footer {
+  text-align: center;
+  background-color: rgb(129, 60, 2);
+  color: aliceblue;
+  padding: 1em;
+}
+
+.token-form fieldset {
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.token-form div {
+  display: flex;
+  padding: 0.5em;
+  font-size: 1.5em;
+  justify-content: center;
+}
+
+.token-form div > label, .token-form div > input {
+  flex: 1;
+}
+
+.token-form div > button {
+  width: 40%;
+  padding: 0.75em;
+  border-radius: 1em;
+}
+
+.token-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.token-list > li {
+  padding: 1em;
+}
+
+.token-list ul {
+  padding: 1em;
+  border: 0.2em black solid;
+  border-radius: 1em;
+}
+
+.token-list > li li {
+  padding: 0.2em;
+}
