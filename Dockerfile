@@ -1,20 +1,15 @@
-FROM node:18.12.1-alpine
-
-RUN mkdir -p /app/Frontend/node_modules \
-    && chown -R node:node /app
-
-WORKDIR /app/Frontend
-
-COPY package*.json ./
-
-USER node
-
-RUN npm ci
-
-COPY --chown=node:node . .
-
+#build
+FROM node:18.8.0-alpine as build
+WORKDIR /app
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install
+COPY /. ./
 RUN npm run build
 
-EXPOSE 3000
-
-ENTRYPOINT ["npm", "start"]
+#run
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+# COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
