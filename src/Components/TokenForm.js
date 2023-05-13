@@ -10,7 +10,21 @@ const TokenForm = () => {
   });
 
   const submitHandle = (e) => {
-    e.preventdefault();
+    e.preventDefault();
+    const data = {
+      name: e.target.name.value,
+      symbol: e.target.symbol.value,
+      decimals: Number(e.target.decimals.value),
+      supply: Number(e.target.supply.value),
+    }
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    };
+    fetch(`${process.env.REACT_APP_TOKEN_FACTORY_URL}/factory`, requestOptions)
+      .then(response => response.json())
+      .then(data => console.log('token hash', data));
     clearForm();
   };
 

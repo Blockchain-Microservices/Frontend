@@ -1,15 +1,29 @@
+import { useEffect, useState } from 'react';
 import '../App.css';
-import Tokens from '../Tokens';
 
 const TokenList = () => {
+  const [tokens, setTokens] = useState([]);
+
+  useEffect(() => {
+    const fetchTokens = async () => {
+      const res = await fetch(`${process.env.REACT_APP_TOKEN_MANAGER_URL}/token`);
+      const data = await res.json();
+      setTokens(data);
+    }
+    fetchTokens();
+  }, []);
+
   return (
     <ul className='token-list'>
-      {Tokens.map((token) => (
+      {tokens?.map((token) => (
         <li key={token.id}>
           <ul>
             <li><strong>Name:</strong> {token.name}</li>
             <li><strong>Symbol:</strong> {token.symbol}</li>
-            <li><strong>Supplied:</strong> {token.supplied}</li>
+            <li><strong>Supplied:</strong> {token.supply}</li>
+            <li><strong>Decimals:</strong> {token.decimals}</li>
+            <li><strong>Address:</strong> {token.address}</li>
+            <li><strong>Deployer:</strong> {token.deployer}</li>
           </ul>
         </li>
       ))}
