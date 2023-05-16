@@ -22,7 +22,7 @@ const TokenForm = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     };
-    fetch(`${process.env.REACT_APP_TOKEN_FACTORY_URL}/factory`, requestOptions)
+    fetch(`/factory`, requestOptions)
       .then(response => response.json())
       .then(data => console.log('token hash', data));
     clearForm();

@@ -6,7 +6,7 @@ const TokenList = () => {
 
   useEffect(() => {
     const fetchTokens = async () => {
-      const res = await fetch(`${process.env.REACT_APP_TOKEN_MANAGER_URL}/token`);
+      const res = await fetch(`/token`);
       const data = await res.json();
       setTokens(data);
     }
